@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .level1 {
+      display: relative;
+    }
+    div[data-active='false'] {
+      visibility: hidden;
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="level1">
+    <div id="item1" data-active="true">item1 active=true</div>
+    <div id="item2" data-active="true">item2 active=true</div>
+  </div>
+</body>
+
+<script>
+  const divItem1 = document.querySelector('#item1')
+  divItem1.dataset.active="false"
+
+  const divItem2 = document.querySelector('#item2')
+  divItem2.dataset.active="true"
+</script>
+
+</html>
