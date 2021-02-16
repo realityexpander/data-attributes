@@ -41,6 +41,7 @@
   }, 1000)
 
   // Change all "data-hidden" to visible
+  // https://stackoverflow.com/questions/566203/changing-css-values-with-javascript
   setTimeout( () => {
     document.styleSheets[0].cssRules[2].selectorText = '[data-hidden="false"]'
   }, 2000 )
