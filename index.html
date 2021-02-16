@@ -9,25 +9,42 @@
     .level1 {
       display: relative;
     }
-    div[data-active='false'] {
+    [data-active='false'] {
       visibility: hidden;
-      display:none;
+      /* display:none; */
+    }
+    [data-hidden='true'] {
+      visibility: hidden;
     }
   </style>
 </head>
 <body>
   <div class="level1">
-    <div id="item1" data-active="true">item1 active=true</div>
-    <div id="item2" data-active="true">item2 active=true</div>
+    <div id="item1" data-active="true">item1 </div>
+    <div id="item2" data-active="false">item2 </div>
+
+    <div data-hidden="true">itemA</div>
+    <div data-hidden="true">itemB</div>
+
   </div>
 </body>
 
 <script>
-  const divItem1 = document.querySelector('#item1')
-  divItem1.dataset.active="false"
 
-  const divItem2 = document.querySelector('#item2')
-  divItem2.dataset.active="true"
+  // Toggle individual elements from active to inactive
+  setTimeout(function() {
+    const divItem1 = document.querySelector('#item1')
+    const divItem2 = document.querySelector('#item2')
+
+    divItem1.dataset.active=!(divItem1.dataset.active == 'true')
+    divItem2.dataset.active=!(divItem2.dataset.active == 'true')
+  }, 1000)
+
+  // Change all "data-hidden" to visible
+  setTimeout( () => {
+    document.styleSheets[0].cssRules[2].selectorText = '[data-hidden="false"]'
+  }, 2000 )
+
 </script>
 
 </html>
